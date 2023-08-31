@@ -34,3 +34,18 @@ INSERT INTO Ftype VALUES ('1','Direct','yes','5');
 INSERT INTO Ftype VALUES ('2','Direct','no','10');
 INSERT INTO Ftype VALUES ('3','1 stop','yes','21');
 INSERT INTO Ftype VALUES ('4','2 stops','no','2');
+
+
+SELECT * FROM Ftype;
+SELECT * FROM planes;
+
+SELECT * FROM Ftype
+WHERE  num > 2;
+
+SELECT * FROM planes
+WHERE country_start like '%ca%';
+
+UPDATE Ftype
+SET Food_on_plane = "no"
+WHERE  num = 3;
+
