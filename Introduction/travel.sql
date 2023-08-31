@@ -14,3 +14,23 @@ INSERT INTO planes VALUES (2, 'China', 'Japan');
 
 
 
+SELECT * FROM planes;
+
+SELECT * FROM planes ORDER BY Country_start;
+
+SELECT * FROM planes LIMIT 4;
+
+SELECT Country_start AS 'start' FROM planes;
+
+CREATE TABLE Ftype
+(num INTEGER PRIMARY KEY,
+Flight_type CHAR(25),
+Food_on_plane CHAR(25),
+Plane_num INTEGER,
+FOREIGN KEY (Plane_num) REFERENCES planes(num)
+);
+
+INSERT INTO Ftype VALUES ('1','Direct','yes','5');
+INSERT INTO Ftype VALUES ('2','Direct','no','10');
+INSERT INTO Ftype VALUES ('3','1 stop','yes','21');
+INSERT INTO Ftype VALUES ('4','2 stops','no','2');
