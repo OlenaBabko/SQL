@@ -49,3 +49,8 @@ UPDATE Ftype
 SET Food_on_plane = "no"
 WHERE  num = 3;
 
+SELECT * FROM Ftype
+WHERE food_on_plane LIKE '%y%' AND flight_type LIKE '%Di%';
+
+SELECT * FROM planes
+WHERE country_start LIKE '%Ca%' OR country_arrival LIKE '%Ja%';
