@@ -58,3 +58,7 @@ WHERE country_start LIKE '%Ca%' OR country_arrival LIKE '%Ja%';
 
 SELECT * FROM Ftype
 WHERE num BETWEEN 1 AND 2;
+
+
+SELECT * FROM Ftype;
+DELETE FROM Ftype WHERE num = 4;
