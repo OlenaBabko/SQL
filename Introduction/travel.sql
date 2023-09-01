@@ -62,3 +62,8 @@ WHERE num BETWEEN 1 AND 2;
 
 SELECT * FROM Ftype;
 DELETE FROM Ftype WHERE num = 4;
+
+
+
+SELECT * FROM planes
+LEFT JOIN Ftype ON planes.num = Ftype.Plane_num;
