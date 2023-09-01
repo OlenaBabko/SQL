@@ -54,3 +54,7 @@ WHERE food_on_plane LIKE '%y%' AND flight_type LIKE '%Di%';
 
 SELECT * FROM planes
 WHERE country_start LIKE '%Ca%' OR country_arrival LIKE '%Ja%';
+
+
+SELECT * FROM Ftype
+WHERE num BETWEEN 1 AND 2;
