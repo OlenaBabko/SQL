@@ -1,0 +1,8 @@
+customer_id,customer_name,customer_age,cars_rented,invoice_id,bobs_elite_member
+777,Polly Moore,56,775MBW,4534,FALSE
+778,Chloe Adams,25,8KL5J4,9832,FALSE
+779,Rachael Crow,32,"5H5MD7, 6CH7LY, 775MBW","2903, 3490, 1021",TRUE
+780,Jean Crawford,45,"5H5MD7, 8KL5J4","7890, 4494",FALSE
+781,Jeff Winger,37,"775MBW, 6CH7LY","6656, 4587",TRUE
+782,Jordie Rietvield,33,8KL5J4,2354,FALSE
+783,Nina Helvar,27,8KL5J4,1425,FALSE
