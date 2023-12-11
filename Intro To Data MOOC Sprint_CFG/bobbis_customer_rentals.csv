@@ -1,0 +1,8 @@
+customer_id, car_id, car_license,start_date,end_date,model,manufacturer,type_car,car_condition,color
+777,551,8KL5J4,08/01/2022,10/01/2022,Phaeton 2016,Volkswagen,sedan,fair,blue
+778,552,6CH7LY,18/03/2022,21/03/2022,Impala 1960,Chevrolet,convertible,excellent,black
+779,553,5H5MD7,14/04/2022,14/04/2022,X7,BMW,SUV,good,grey
+780,553,5H5MD7,02/05/2022,16/05/2022,X7,BMW,SUV,good,grey
+781,554,775MBW,12/01/2022,13/01/2022,X7,BMW,SUV,excellent,black
+782,551,8KL5J4,17/02/2022,22/02/2022,Phaeton 2016,Volkswagen,sedan,fair,blue
+783,551,8KL5J4,05/03/2022,20/03/2022,Phaeton 2016,Volkswagen,sedan,fair,blue
