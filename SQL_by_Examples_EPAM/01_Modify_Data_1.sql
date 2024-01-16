@@ -13,4 +13,9 @@ FROM subscribers
 GROUP BY s_name;
 
 
+# 3
+# all ids (without duplication) of all books ever taken by subscribers;
+SELECT DISTINCT sb_book
+FROM subscriptions
+WHERE sb_start IS True;
 
