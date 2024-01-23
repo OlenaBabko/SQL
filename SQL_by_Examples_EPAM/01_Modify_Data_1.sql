@@ -34,3 +34,8 @@ SELECT COUNT(s_id) AS total_subscribers
 FROM subscribers;
 
 
+# 6 how many books are there in the library.
+SELECT COUNT(b_id) AS total_books
+FROM books;
+
+
