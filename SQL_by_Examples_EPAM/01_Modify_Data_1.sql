@@ -29,3 +29,8 @@ GROUP BY sb_book;
 
 
 
+# 5 Write query to show how many subscribers are there in the library.
+SELECT COUNT(s_id) AS total_subscribers
+FROM subscribers;
+
+
