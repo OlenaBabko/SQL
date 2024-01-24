@@ -1,5 +1,5 @@
 # Queries to Select and Modify Data
-
+# SELECT, COUNT, ORDER, GROUP
 
 
 # 1 Show unique Id of subscribers, who visited the library at least once
@@ -37,5 +37,11 @@ FROM subscribers;
 # 6 how many books are there in the library.
 SELECT COUNT(b_id) AS total_books
 FROM books;
+
+
+# 7 how many copies of books are taken by subscribers
+SELECT COUNT(sb_book) AS copies_taken					/* "in_use" */
+FROM subscriptions
+WHERE sb_is_active = 'Y';
 
 
