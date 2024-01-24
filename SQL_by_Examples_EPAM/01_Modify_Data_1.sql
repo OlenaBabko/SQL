@@ -45,3 +45,9 @@ FROM subscriptions
 WHERE sb_is_active = 'Y';
 
 
+# 8 how many different books are taken by subscribers
+SELECT COUNT(DISTINCT sb_book) AS books_taken			/* "in_use" */
+FROM subscriptions
+WHERE sb_is_active = 'Y';
+
+
