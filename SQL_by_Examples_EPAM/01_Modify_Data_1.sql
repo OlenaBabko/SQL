@@ -51,3 +51,10 @@ FROM subscriptions
 WHERE sb_is_active = 'Y';
 
 
+# 9*
+# how many times subscribers have taken books
+SELECT sb_subscriber,
+	COUNT(DISTINCT sb_book) AS books_taken
+FROM subscriptions
+GROUP BY sb_subscriber;
+
