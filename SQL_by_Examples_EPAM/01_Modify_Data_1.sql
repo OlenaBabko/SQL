@@ -58,3 +58,10 @@ SELECT sb_subscriber,
 FROM subscriptions
 GROUP BY sb_subscriber;
 
+# 10*
+# how many subscribers have taken books
+SELECT COUNT(DISTINCT sb_subscriber) AS num_of_subscribers
+FROM subscriptions;
+
+
+
