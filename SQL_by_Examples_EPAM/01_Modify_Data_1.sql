@@ -65,3 +65,11 @@ FROM subscriptions;
 
 
 
+# 11 Show total, min, max, average copies of books quantities
+SELECT SUM(b_quantity) AS sum,
+	MIN(b_quantity) AS min,
+    MAX(b_quantity) AS max,
+    AVG(b_quantity) AS avg
+FROM books;
+
+
