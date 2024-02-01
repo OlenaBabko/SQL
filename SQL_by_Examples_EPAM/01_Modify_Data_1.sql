@@ -73,3 +73,11 @@ SELECT SUM(b_quantity) AS sum,
 FROM books;
 
 
+# 12 Write query to show the first and the last dates when a book was taken by a subscriber
+SELECT sb_subscriber,
+	MIN(sb_start) AS first_book_taken,
+    MAX(sb_start) AS last_book_taken
+FROM subscriptions
+GROUP BY sb_subscriber;
+
+
