@@ -81,3 +81,9 @@ FROM subscriptions
 GROUP BY sb_subscriber;
 
 
+# 13 Show all books ordered by issuing year(asc)
+SELECT b_name, b_year
+FROM books
+ORDER BY b_year ASC;
+
+
