@@ -94,3 +94,10 @@ FROM authors
 ORDER BY a_name DESC;
 
 
+# 15
+# Show all books issued (1990-2000) and represented with at least 3copies
+SELECT b_name, b_year, b_quantity
+FROM books
+WHERE b_year BETWEEN 1990 AND 2000
+	AND b_quantity >= 3;
+    
