@@ -87,3 +87,10 @@ FROM books
 ORDER BY b_year ASC;
 
 
+# 14
+# query to show the all authors ordered by their names descending (i.e., "Z -> A")
+SELECT a_name
+FROM authors
+ORDER BY a_name DESC;
+
+
