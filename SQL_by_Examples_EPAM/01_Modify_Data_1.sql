@@ -108,3 +108,14 @@ FROM subscriptions
 WHERE sb_start >= 2012-06-01 AND sb_start < 2012-09-01;
 
 
+# 17 
+# Show books that have the number of their copies 
+# less than average number of all books copies;
+SELECT b_name,
+	b_quantity
+FROM books
+WHERE b_quantity < (
+	SELECT AVG(b_quantity)
+    FROM books
+);
+/*
