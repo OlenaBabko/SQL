@@ -101,3 +101,10 @@ FROM books
 WHERE b_year BETWEEN 1990 AND 2000
 	AND b_quantity >= 3;
     
+# 16
+# Show all subscritions that had occuerred in summer of 2012
+SELECT sb_subscriber, sb_start
+FROM subscriptions
+WHERE sb_start >= 2012-06-01 AND sb_start < 2012-09-01;
+
+
