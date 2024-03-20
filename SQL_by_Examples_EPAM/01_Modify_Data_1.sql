@@ -119,3 +119,17 @@ WHERE b_quantity < (
     FROM books
 );
 /*
+# 18* ???
+# Show ids and dates of all subscriptions occurred during the
+# first year of the library work (i.e., up to Dec 31st of 
+# the year when the first subscription had happened)
+SELECT sb_id,
+	sb_start
+FROM subscriptions
+WHERE sb_start <= (
+	SELECT MIN(sb_start)
+    FROM subscriptions
+    );
+*/
+
+
