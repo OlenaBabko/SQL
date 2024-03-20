@@ -133,3 +133,18 @@ WHERE sb_start <= (
 */
 
 
+# 19 
+# Show one book, the number of copies of which is max (equal to max for all books)
+SELECT b_name,
+	b_quantity
+FROM books
+WHERE b_quantity = (
+	SELECT MAX(b_quantity)
+    FROM books)
+LIMIT 1;
+# OR
+SELECT b_name,
+	b_quantity
+FROM books
+ORDER BY b_quantity DESC
+LIMIT 1;
