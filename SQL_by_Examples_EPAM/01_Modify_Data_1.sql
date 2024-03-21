@@ -159,3 +159,16 @@ WHERE b_quantity = (
 	SELECT MAX(b_quantity)
     FROM books);
     
+# 21
+# Show books, if any, which has more copies than any other books
+# ALL, subquery
+SELECT b_name,
+	b_quantity
+FROM books AS external
+WHERE b_quantity > ALL (
+	SELECT b_quantity
+    FROM books AS internal
+    WHERE external.b_id != internal.b_id
+    );
+
+
