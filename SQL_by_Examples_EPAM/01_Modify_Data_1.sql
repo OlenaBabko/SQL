@@ -148,3 +148,14 @@ SELECT b_name,
 FROM books
 ORDER BY b_quantity DESC
 LIMIT 1;
+
+
+# 20
+# Show all books, the number of copies of which is max (= the same for all these books)
+SELECT b_name,
+	b_quantity
+FROM books
+WHERE b_quantity = (
+	SELECT MAX(b_quantity)
+    FROM books);
+    
