@@ -192,3 +192,16 @@ JOIN counted_cte
 ON counted_cte.rank_position = 1 AND counted_cte.bigest = 1;
 
 
+/*
+# 22* ??? NOT WORKING
+# Write SQL queries to show the identifier of one (any) 
+#subscriber who has taken the most books from the library;
+SELECT sb_subscriber
+FROM subscriptions
+WHERE sb_subscriber = (
+	SELECT COUNT(sb_start)
+    FROM subscriptions
+    GROUP BY sb_subscriber
+    )
+LIMIT 1;
+
