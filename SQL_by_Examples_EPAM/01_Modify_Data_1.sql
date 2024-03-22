@@ -170,5 +170,25 @@ WHERE b_quantity > ALL (
     FROM books AS internal
     WHERE external.b_id != internal.b_id
     );
+# OR
+# RANK, cte
+WITH ranked_cte AS (
+	SELECT  b_name,
+		b_quantity,
+        RANK() OVER (
+        ORDER BY b_quantity DESC) AS rank_position
+	FROM books
+    ),
+    counted_cte AS (
+		SELECT rank_position,
+			COUNT(*) AS bigest
+		FROM ranked_cte
+        GROUP BY rank_position
+        )
+SELECT b_name,
+	b_quantity
+FROM ranked_cte
+JOIN counted_cte
+ON counted_cte.rank_position = 1 AND counted_cte.bigest = 1;
 
 
