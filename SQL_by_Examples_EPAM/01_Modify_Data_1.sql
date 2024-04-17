@@ -216,3 +216,15 @@ LIMIT 1;
 */
 
 
+
+# 25
+# Show the average quantity of copies of books each reader currently has taken
+SELECT AVG(copies_currently_taken) AS average_copies
+FROM (
+	SELECT COUNT(sb_book) AS copies_currently_taken
+    FROM subscriptions
+	WHERE sb_is_active = "Y"
+	GROUP BY sb_subscriber
+    )
+    AS count_subquery;
+
