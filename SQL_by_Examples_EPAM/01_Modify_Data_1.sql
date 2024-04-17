@@ -205,3 +205,7 @@ WHERE sb_subscriber = (
     )
 LIMIT 1;
 
+# 23* ???
+# Write SQL queries to show the identifiers of all subscribers who
+# has taken the most books from the library;
+
