@@ -209,3 +209,10 @@ LIMIT 1;
 # Write SQL queries to show the identifiers of all subscribers who
 # has taken the most books from the library;
 
+# 24* ???
+# Write SQL queries to show the identifier of the "champion subscriber" 
+# who has taken more books from the library than any other subscriber.
+
+*/
+
+
