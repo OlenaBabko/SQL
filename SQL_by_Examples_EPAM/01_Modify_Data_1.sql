@@ -228,3 +228,16 @@ FROM (
     )
     AS count_subquery;
 
+
+# 26
+# Show the average quantity of books each reader currently has taken
+SELECT AVG(books_currently_taken) AS average_books
+FROM (
+	SELECT COUNT(DISTINCT sb_book) AS books_currently_taken
+    FROM  subscriptions
+	WHERE sb_is_active = "Y"
+    GROUP BY sb_subscriber
+    )
+    AS count_books_subquery;
+
+
