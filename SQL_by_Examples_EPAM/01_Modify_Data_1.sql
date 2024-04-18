@@ -241,3 +241,11 @@ FROM (
     AS count_books_subquery;
 
 
+# 27 
+# Show the average number of days a subscriber reads a book
+# (only cases when a book was returned)
+SELECT AVG(DATEDIFF(`sb_finish`, `sb_start`)) AS average_days
+FROM subscriptions
+WHERE sb_is_active = 'N';
+
+
