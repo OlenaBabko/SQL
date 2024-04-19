@@ -264,4 +264,14 @@ FROM (
 	WHERE sb_is_active = "Y"
     )
     AS all_days;
+ 
+ 
+ 
+# 29*
+# Write SQL queries to show average number of copies 
+# of books registered in the library;
+SELECT AVG(b_quantity)
+FROM books
+GROUP BY b_id;
+
 
