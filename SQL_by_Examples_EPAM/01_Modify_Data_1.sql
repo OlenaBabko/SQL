@@ -249,3 +249,19 @@ FROM subscriptions
 WHERE sb_is_active = 'N';
 
 
+# 28 ??? need think about
+# Show the average number of days a subscriber reads a book
+# (both cases when a book was returnwed and was not yet returned)
+
+SELECT AVG(days) AS average_days
+FROM (
+	SELECT DATEDIFF(`sb_finish`, `sb_start`) AS days     /*_when_returned */
+	FROM subscriptions
+	WHERE sb_is_active = "N"
+	UNION ALL
+    SELECT DATEDIFF(CURDATE(), `sb_start`) AS days      /*_not_returned */
+	FROM subscriptions
+	WHERE sb_is_active = "Y"
+    )
+    AS all_days;
+
