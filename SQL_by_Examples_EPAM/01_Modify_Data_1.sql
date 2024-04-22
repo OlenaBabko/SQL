@@ -264,8 +264,8 @@ FROM (
 	WHERE sb_is_active = "Y"
     )
     AS all_days;
- 
- 
+
+  
  
 # 29*
 # Write SQL queries to show average number of copies 
@@ -273,5 +273,20 @@ FROM (
 SELECT AVG(b_quantity)
 FROM books
 GROUP BY b_id;
+
+
+# 30* ???
+# show average number of days a subscriber 
+# is registered in the library (the registration period starts with
+# the first subscription date and ends with the current date).
+
+SELECT 
+	AVG(days_registered)
+FROM subscriptions
+WHERE (
+	SELECT DATEDIFF(CURDATE(), MIN(sb_start)) AS days_registered
+    FROM subscriptions
+    GROUP BY sb_subscriber
+    );
 
 
