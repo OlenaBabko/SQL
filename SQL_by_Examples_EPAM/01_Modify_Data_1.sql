@@ -290,3 +290,12 @@ WHERE (
     );
 
 
+# 31
+# For each year show how many books was taken by subscribers
+SELECT YEAR(sb_start) AS `year`,
+	COUNT(sb_id) AS `books_taken`
+FROM subscriptions
+GROUP BY `year`
+ORDER BY `year`;
+
+
