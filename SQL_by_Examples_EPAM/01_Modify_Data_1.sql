@@ -299,3 +299,12 @@ GROUP BY `year`
 ORDER BY `year`;
 
 
+# 32
+# For each year show how many subscribers were taking books
+SELECT YEAR(sb_start) AS `year`,
+	COUNT(DISTINCT sb_subscriber) AS `subscribers`
+FROM subscriptions
+GROUP BY `year`
+ORDER BY `year`;
+
+
