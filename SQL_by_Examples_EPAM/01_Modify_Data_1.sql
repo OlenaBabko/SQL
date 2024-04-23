@@ -308,3 +308,10 @@ GROUP BY `year`
 ORDER BY `year`;
 
 
+# 33
+# Show how many books was returned / not returned to the library
+SELECT
+	COUNT(CASE WHEN sb_is_active = "N" THEN "returned" END) AS books_returned,
+	COUNT(CASE WHEN sb_is_active = "Y" THEN "not_returned" END) AS books_not_returned
+FROM subscriptions;
+
