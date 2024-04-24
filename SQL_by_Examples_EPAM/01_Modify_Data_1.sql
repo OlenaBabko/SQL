@@ -315,3 +315,16 @@ SELECT
 	COUNT(CASE WHEN sb_is_active = "Y" THEN "not_returned" END) AS books_not_returned
 FROM subscriptions;
 
+## or
+SELECT 
+	IF (
+		sb_is_active = "Y", "not_returned", "returned"
+        ) AS status,
+	COUNT(sb_id) AS books
+FROM subscriptions
+GROUP BY status
+ORDER BY status DESC;
+
+
+
+# 34
