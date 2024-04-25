@@ -32,3 +32,13 @@ JOIN subscribers ON subscriptions.sb_subscriber = subscribers.s_id;
 
 
 
+# 36* ???
+# Write SQL queries to show books written by more than one author
+SELECT books.b_name,
+	COUNT(authors.a_name) AS authors
+FROM books
+JOIN m2m_books_authors AS ma ON books.b_id = ma.b_id
+JOIN authors ON ma.a_id =  authors.a_id
+GROUP BY books.b_id
+HAVING COUNT(a_name) >1;
+
