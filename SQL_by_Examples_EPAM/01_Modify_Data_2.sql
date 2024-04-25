@@ -17,3 +17,18 @@ JOIN genres ON mg.g_id = genres.g_id;					/*USING(`g_id`)*/
 
 
 
+# 35
+# 2
+# Show human-readable info about all subscriptions
+# (books title, subscribers name, s_id, sb_start, sb_finish)
+SELECT books.b_name,
+	subscribers.s_name,
+    subscribers.s_id,
+    subscriptions.sb_start, 
+    subscriptions.sb_finish
+FROM books
+JOIN subscriptions ON books.b_id = subscriptions.sb_book
+JOIN subscribers ON subscriptions.sb_subscriber = subscribers.s_id;
+
+
+
