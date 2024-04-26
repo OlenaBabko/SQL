@@ -42,3 +42,15 @@ JOIN authors ON ma.a_id =  authors.a_id
 GROUP BY books.b_id
 HAVING COUNT(a_name) >1;
 
+# 37* ???
+# Write SQL queries to show books that are written in exactly one genre
+SELECT books.b_name,
+	COUNT(genres.g_name) AS genre
+FROM books
+JOIN m2m_books_genres AS mg ON books.b_id = mg.b_id	
+JOIN genres ON mg.g_id = genres.g_id
+GROUP BY books.b_id
+HAVING COUNT(g_name) =1;
+
+
+
