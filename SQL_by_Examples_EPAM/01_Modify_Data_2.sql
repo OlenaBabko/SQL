@@ -70,3 +70,19 @@ ORDER BY books.b_name;
 
 
 
+# 39
+# Show all books along with treir authors (books titles duplication is not allowed)
+SELECT books.b_name,
+	GROUP_CONCAT(
+		authors.a_name
+        ORDER BY authors.a_name
+        SEPARATOR ', '
+        ) AS authors
+FROM books
+JOIN m2m_books_authors AS ma ON books.b_id = ma.b_id
+JOIN authors ON ma.a_id = authors.a_id
+GROUP BY books.b_id
+ORDER BY books.b_name;
+
+
+
