@@ -86,3 +86,27 @@ ORDER BY books.b_name;
 
 
 
+# 40
+# Show all books along with treir authors and genres (books titles
+# and/or authors duplication is not allowed)
+SELECT books.b_name,
+	GROUP_CONCAT(
+		DISTINCT authors.a_name 
+        ORDER BY authors.a_name
+        SEPARATOR ', '
+		) AS authors,
+	GROUP_CONCAT(
+		DISTINCT genres.g_name
+        ORDER BY genres.g_name
+        SEPARATOR ', '
+		) AS genres
+FROM books
+JOIN m2m_books_authors AS ma ON books.b_id = ma.b_id
+JOIN authors ON ma.a_id = authors.a_name
+JOIN m2m_books_genres AS mg ON books.b_id = mg.b_id	
+JOIN genres ON mg.g_id = genres.g_id	
+GROUP BY books.b_id
+ORDER BY books.b_name;
+
+
+
