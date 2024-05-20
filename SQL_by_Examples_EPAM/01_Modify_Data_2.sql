@@ -110,3 +110,19 @@ ORDER BY books.b_name;
 
 
 
+# 41 ***
+# Write SQL queries to show all books along with their genres 
+#(books’ titles duplication is not allowed);
+SELECT books.b_name,
+	GROUP_CONCAT(
+    genres.g_name
+    ORDER BY genres.g_name
+    SEPARATOR ', '
+    ) AS genres
+FROM books
+JOIN m2m_books_genres AS mg ON books.b_id = mg.b_id	
+JOIN genres ON mg.g_id = genres.g_id	
+GROUP BY b_name
+ORDER BY b_name;
+
+
