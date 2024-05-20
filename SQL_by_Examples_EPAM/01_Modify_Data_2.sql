@@ -126,3 +126,27 @@ GROUP BY b_name
 ORDER BY b_name;
 
 
+# 42 ***
+# Write SQL queries to show all authors along with their books and genres 
+# (authors’ names and/or books’ titles duplication is not allowed).
+SELECT authors.a_name,
+	GROUP_CONCAT(
+		books.b_name
+        ORDER BY books.b_name
+        SEPARATOR ', '
+        ) AS books,
+    GROUP_CONCAT(
+		genres.g_name
+        ORDER BY genres.g_name
+        SEPARATOR ', '
+        ) AS genres
+FROM authors
+JOIN m2m_books_authors AS ma ON authors.a_id = ma.a_id
+JOIN books ON ma.b_id = books.b_id
+JOIN m2m_books_genres AS mg ON books.b_id = mg.b_id
+JOIN genres ON mg.g_id = genres.g_id
+GROUP BY authors.a_name
+ORDER BY authors.a_name;
+
+
+
