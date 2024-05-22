@@ -150,3 +150,14 @@ ORDER BY authors.a_name;
 
 
 
+# 43
+# Show all subscribers who have ever taken a book from rhe library (with Join)
+SELECT
+	DISTINCT subscribers.s_id,
+	subscribers.s_name
+FROM subscribers
+JOIN subscriptions ON subscribers.s_id = subscriptions.sb_subscriber
+ORDER BY subscribers.s_id;
+
+
+
