@@ -161,3 +161,16 @@ ORDER BY subscribers.s_id;
 
 
 
+# 44
+# Show all subscribers who have ever taken a book from rhe library (not Join)
+SELECT
+	DISTINCT s_id,
+	s_name
+FROM subscribers
+WHERE s_id IN (
+	SELECT DISTINCT sb_subscriber
+    FROM subscriptions)
+ORDER BY s_id;
+
+
+
