@@ -174,3 +174,15 @@ ORDER BY s_id;
 
 
 
+# 45
+# Show all subscribers who have never taken a book from rhe library (with Join)
+SELECT
+	DISTINCT subscribers.s_id,
+	subscribers.s_name
+FROM subscribers
+LEFT JOIN subscriptions ON subscribers.s_id = subscriptions.sb_subscriber
+WHERE subscriptions.sb_subscriber IS NULL
+ORDER BY subscribers.s_id;
+
+
+
