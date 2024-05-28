@@ -206,3 +206,13 @@ FROM books
 JOIN subscriptions ON books.b_id = subscriptions.sb_book
 GROUP BY books.b_name;
 
+# b) Write SQL queries to show all books ever taken from the library (do not use JOIN);
+SELECT books.b_name
+FROM books
+WHERE b_id IN (
+	SELECT sb_book
+	FROM subscriptions
+    )
+GROUP BY books.b_name;
+
+
