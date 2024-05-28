@@ -199,3 +199,10 @@ ORDER BY s_id;
 
 
 
+# 47 
+# a) Write SQL queries to show all books ever taken from the library (use JOIN);
+SELECT books.b_name
+FROM books
+JOIN subscriptions ON books.b_id = subscriptions.sb_book
+GROUP BY books.b_name;
+
