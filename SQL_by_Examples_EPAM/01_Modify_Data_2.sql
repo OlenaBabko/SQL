@@ -224,3 +224,14 @@ LEFT JOIN subscriptions ON books.b_id = subscriptions.sb_book
 WHERE subscriptions.sb_book IS NULL
 GROUP BY books.b_name;
 
+# b) Write SQL queries to show all books never taken from the library (do not use JOIN).
+SELECT books.b_name
+FROM books
+WHERE b_id NOT IN (
+	SELECT sb_book
+	FROM subscriptions
+    )
+GROUP BY books.b_name;
+
+
+
