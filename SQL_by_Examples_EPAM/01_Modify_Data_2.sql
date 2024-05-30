@@ -235,3 +235,11 @@ GROUP BY books.b_name;
 
 
 
+# 49
+# a) Show all subscribers who doesnot have a book now (use JOIN)
+SELECT subscribers.s_id, subscribers.s_name
+FROM subscribers
+LEFT JOIN subscriptions ON subscribers.s_id = subscriptions.sb_subscriber
+GROUP BY subscribers.s_id
+HAVING COUNT(IF(subscriptions.sb_is_active = "Y", subscriptions.sb_is_active, NULL)) =0;
+
