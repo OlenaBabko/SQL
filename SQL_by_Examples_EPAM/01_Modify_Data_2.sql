@@ -252,4 +252,15 @@ WHERE subscribers.s_id NOT IN (
     WHERE subscriptions.sb_is_active = "Y"
     );
     
+   
+   
+   
     
+# 50* ??? still dont know
+# Write an SQL query to show all such books that not a single copy
+# of which is now taken by any subscriber
+
+
+
+
+
