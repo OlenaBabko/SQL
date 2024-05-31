@@ -264,3 +264,16 @@ WHERE subscribers.s_id NOT IN (
 
 
 
+# 51    page 95
+# Show all books from Programing and\or Classic genres
+# do not use JOIN, genres IDs are known
+SELECT b_name
+FROM books
+WHERE b_id IN ( 
+	SELECT DISTINCT b_id
+    FROM m2m_books_genres
+    WHERE g_id IN (2, 5)
+);
+
+
+
