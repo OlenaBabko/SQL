@@ -292,3 +292,13 @@ WHERE b_id IN (
 
 
 
+# 53
+# Show all books from Programing and\or Classic genres
+# use JOIN, genres IDs are known
+SELECT DISTINCT b_name
+FROM books
+JOIN m2m_books_genres USING(b_id)
+WHERE g_id IN (2, 5);
+
+
+
