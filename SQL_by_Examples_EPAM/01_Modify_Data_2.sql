@@ -1,6 +1,5 @@
 ### JOINs, Insertion, Merging, 
-## JOIN, SUBQUERY, AGGREGATION, COMPAUND CONDITION,
-## DATA INSERTION, UPDATE, Conditional Data Modification
+## JOIN, SUBQUERY, AGGREGATION
 
 # 34
 # 1
@@ -274,6 +273,22 @@ WHERE b_id IN (
     FROM m2m_books_genres
     WHERE g_id IN (2, 5)
 );
+
+
+
+# 52 
+# Show all books from Programing and\or Classic genres
+# do not use JOIN, genres IDs are unknown
+SELECT b_name
+FROM books
+WHERE b_id IN ( 
+	SELECT DISTINCT b_id
+    FROM m2m_books_genres
+    WHERE g_id IN (
+		SELECT g_id
+        FROM genres
+        WHERE g_name IN("Programing", "Classic")
+));
 
 
 
