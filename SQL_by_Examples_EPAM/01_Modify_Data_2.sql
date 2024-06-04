@@ -302,3 +302,13 @@ WHERE g_id IN (2, 5);
 
 
 
+# 54
+# Show all books from Programing and\or Classic genres
+# use JOIN, genres IDs are unknown
+SELECT DISTINCT b.b_name,
+	g.g_name
+FROM books AS b
+JOIN m2m_books_genres AS mbg USING(b_id)
+JOIN genres AS g USING(g_id)
+WHERE g_name IN("Programing", "Classic");
+
