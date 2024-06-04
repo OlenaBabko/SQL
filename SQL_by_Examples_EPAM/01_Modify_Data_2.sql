@@ -312,3 +312,15 @@ JOIN m2m_books_genres AS mbg USING(b_id)
 JOIN genres AS g USING(g_id)
 WHERE g_name IN("Programing", "Classic");
 
+# OR
+SELECT DISTINCT b.b_name
+FROM books AS b
+JOIN m2m_books_genres AS mbg USING(b_id)
+WHERE g_id IN (
+	SELECT g_id
+    FROM genres
+    WHERE g_name IN ("Programing", "Classic")
+);
+
+
+
