@@ -324,3 +324,13 @@ WHERE g_id IN (
 
 
 
+# 55*
+# Write SQL queries to show all books written by Alexander Pushkin
+# and/or Isaac Asimov (either individually or as co-authors);
+SELECT books.b_name,
+	authors.a_name
+FROM books
+JOIN m2m_books_authors USING(b_id)
+JOIN authors USING(a_id)
+WHERE a_name IN ("Alexander Pushkin", "Isaac Asimov");
+
