@@ -354,3 +354,15 @@ WHERE a_name = "Dale Carnegie" AND a_name = "Bjarne Stroustrup";
 
 
 
+# 57 page 101
+# Show all books having more than 1 author
+SELECT b_id,
+	b_name,
+    COUNT(mba.a_id) AS authors
+FROM books
+JOIN m2m_books_authors AS mba USING(b_id)
+GROUP BY b_id
+HAVING  authors > 1;
+
+
+
