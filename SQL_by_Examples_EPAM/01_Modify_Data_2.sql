@@ -344,3 +344,13 @@ WHERE a_id IN (
     WHERE a_name IN ("Alexander Pushkin", "Isaac Asimov")
 );
 
+# 56* ?
+# Show all books written by Dale Carnegie AND Bjarne Stroustrup (as co-authors).
+SELECT b_name
+FROM books
+JOIN m2m_books_authors USING(b_id)
+JOIN authors USING(a_id)
+WHERE a_name = "Dale Carnegie" AND a_name = "Bjarne Stroustrup";
+
+
+
