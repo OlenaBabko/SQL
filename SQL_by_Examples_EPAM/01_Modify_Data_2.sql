@@ -380,3 +380,21 @@ FROM books AS b
 JOIN subscriptions AS s ON s.sb_book = b.b_id
 ORDER BY quantity;
 
+# 2 OR with cte
+WITH cte_books_taken AS (
+	SELECT sb_book AS book,
+		COUNT(sb_book) AS taken
+    FROM subscriptions
+    WHERE sb_is_active = "Y" 
+    GROUP BY sb_book
+    )
+SELECT b_id,
+	b_name,
+    (b_quantity - IFNULL((
+		SELECT taken
+        FROM  cte_books_taken
+        WHERE books.b_id =  cte_books_taken.book), 0 
+	)) AS quantity
+FROM books
+ORDER BY quantity;
+
