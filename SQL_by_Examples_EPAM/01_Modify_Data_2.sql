@@ -366,3 +366,17 @@ HAVING  authors > 1;
 
 
 
+# 58    ?
+# Show for all books how many copies of them are now available in the library
+SELECT b_id,
+	b_name,
+    (b_quantity - (
+		SELECT COUNT(s1.sb_book) 
+        FROM subscriptions AS s1
+        WHERE s1.sb_book = s.sb_book 
+        AND s1.sb_is_active = "Y" )
+	) AS quantity
+FROM books AS b
+JOIN subscriptions AS s ON s.sb_book = b.b_id
+ORDER BY quantity;
+
