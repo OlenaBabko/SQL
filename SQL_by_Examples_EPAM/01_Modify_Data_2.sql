@@ -423,3 +423,13 @@ ORDER BY quantity;
     
 
 
+# 59*
+# Write SQL queries to show all authors, who has written more than one book;
+SELECT a_name AS author,
+	COUNT(mba.b_id) AS num_of_books
+FROM authors
+JOIN m2m_books_authors AS mba USING(a_id)
+GROUP BY a_id
+HAVING  num_of_books > 1;
+
+
