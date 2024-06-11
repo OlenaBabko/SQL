@@ -398,3 +398,28 @@ SELECT b_id,
 FROM books
 ORDER BY quantity;
 
+# 3 OR
+WITH cte_books_taken AS (
+	SELECT sb_book
+    FROM subscriptions
+    WHERE sb_is_active = "Y" 
+    ),
+    real_taken AS (
+    SELECT b_id,
+    COUNT(sb_book) AS taken
+    FROM books
+    JOIN cte_books_taken ON  b_id = sb_book
+    GROUP BY b_id
+    )
+SELECT b_id,
+	b_name,
+    (b_quantity - (
+		SELECT taken
+        FROM real_taken
+        WHERE books.b_id = real_taken.b_id 
+	)) AS quantity
+FROM books
+ORDER BY quantity;
+    
+
+
