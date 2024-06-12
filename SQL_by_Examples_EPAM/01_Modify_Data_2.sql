@@ -433,3 +433,15 @@ GROUP BY a_id
 HAVING  num_of_books > 1;
 
 
+# 60*
+# Show all books that are written in more than one genre;
+SELECT b_name AS book,
+	COUNT(g_name) AS num_of_genres
+FROM books
+JOIN m2m_books_genres AS mbg USING(b_id)
+JOIN genres USING(g_id)
+GROUP BY b_id
+HAVING  num_of_genres > 1;
+
+
+
