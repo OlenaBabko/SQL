@@ -445,3 +445,14 @@ HAVING  num_of_genres > 1;
 
 
 
+
+
+# 61*
+# Show all subscribers having more than one book;
+SELECT s_name,
+	COUNT(sb_is_active='Y') AS having_books 
+FROM subscribers AS sb
+JOIN subscriptions  AS sp ON sb.s_id = sp.sb_subscriber
+GROUP BY s_name;
+
+
