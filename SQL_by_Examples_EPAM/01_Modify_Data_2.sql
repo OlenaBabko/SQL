@@ -456,3 +456,14 @@ JOIN subscriptions  AS sp ON sb.s_id = sp.sb_subscriber
 GROUP BY s_name;
 
 
+# 62*
+# Write SQL queries to show how many copies of each book is taken by subscribers;
+SELECT b_name,
+	COUNT(sb_book) AS copies_taken
+FROM books
+JOIN subscriptions AS sp ON books.b_id = sp.sb_book
+WHERE sb_is_active='Y'
+GROUP BY b_id;
+
+
+
