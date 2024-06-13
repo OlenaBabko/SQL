@@ -467,3 +467,14 @@ GROUP BY b_id;
 
 
 
+# 63*
+# Show all authors along with total copies of their books;
+SELECT a_name,
+	SUM(b_quantity) AS books_copies
+FROM authors
+JOIN m2m_books_authors AS mba USING(a_id)
+JOIN books USING(b_id)
+GROUP BY a_name;
+
+
+
