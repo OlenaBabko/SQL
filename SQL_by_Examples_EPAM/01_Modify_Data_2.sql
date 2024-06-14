@@ -478,3 +478,14 @@ GROUP BY a_name;
 
 
 
+
+# 64*
+# Show all authors along with count their books (just books, not copies);
+SELECT a_name,
+	COUNT(DISTINCT b_id) AS authors_books
+FROM authors
+JOIN m2m_books_authors AS mba USING(a_id)
+JOIN books USING(b_id)
+GROUP BY a_name;
+
+
