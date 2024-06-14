@@ -489,3 +489,12 @@ JOIN books USING(b_id)
 GROUP BY a_name;
 
 
+# 65* ???
+# Write SQL queries to show all subscribers with overdue subscriptions (along with books copies count).
+
+
+
+
+
+
+
