@@ -498,3 +498,14 @@ GROUP BY a_name;
 
 
 
+# 66
+# Show all authors along with subscriptions to therir books count
+SELECT a_id,
+	a_name,
+	COUNT(sb.sb_book) AS subscribed_books
+FROM subscriptions AS sb 
+JOIN books AS b ON sb.sb_book = b.b_id
+JOIN m2m_books_authors AS mba USING(b_id) 
+JOIN authors USING(a_id)
+GROUP BY a_id;
+
