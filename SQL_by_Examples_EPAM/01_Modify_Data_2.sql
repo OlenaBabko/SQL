@@ -509,3 +509,16 @@ JOIN m2m_books_authors AS mba USING(b_id)
 JOIN authors USING(a_id)
 GROUP BY a_id;
 
+# OR
+SELECT a_id,
+	a_name,
+	COUNT(sb_book) AS subscribed_books
+FROM authors AS a
+JOIN m2m_books_authors AS mba USING(a_id)
+LEFT OUTER JOIN subscriptions AS sb ON mba.b_id = sb.sb_book
+GROUP BY a_id
+ORDER BY subscribed_books DESC;
+
+
+
+
