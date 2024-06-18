@@ -522,3 +522,26 @@ ORDER BY subscribed_books DESC;
 
 
 
+# 67
+# Show the most popular author/authors 
+# with MAX
+WITH cte_count AS (
+	SELECT a_id,
+		a_name,
+		COUNT(sb_book) AS subscribed_books
+	FROM authors AS a
+	JOIN m2m_books_authors AS mba USING(a_id)
+	JOIN subscriptions AS sb ON mba.b_id = sb.sb_book
+	GROUP BY a_id
+	ORDER BY subscribed_books DESC
+)
+SELECT a_id,
+		a_name,
+        subscribed_books
+FROM cte_count
+WHERE subscribed_books = (
+	SELECT MAX(subscribed_books)
+    FROM cte_count
+);
+
+
