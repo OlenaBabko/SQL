@@ -545,3 +545,22 @@ WHERE subscribed_books = (
 );
 
 
+# with RANK
+WITH cte_count AS (
+	SELECT a_id,
+		a_name,
+		COUNT(sb_book) AS subscribed_books,
+        RANK() OVER (ORDER BY COUNT(sb_book) DESC) AS b_rank
+	FROM authors AS a
+	JOIN m2m_books_authors AS mba USING(a_id)
+	JOIN subscriptions AS sb ON mba.b_id = sb.sb_book
+	GROUP BY a_id
+	ORDER BY subscribed_books DESC
+)
+SELECT a_id,
+		a_name,
+        subscribed_books
+FROM cte_count
+WHERE b_rank = 1;
+
+
