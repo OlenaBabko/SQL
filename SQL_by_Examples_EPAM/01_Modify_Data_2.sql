@@ -564,3 +564,16 @@ FROM cte_count
 WHERE b_rank = 1;
 
 
+# 68
+# Show average authors popularity
+SELECT AVG(num_of_books) AS avg_popularity
+FROM (
+	SELECT COUNT(sb_book) AS num_of_books
+    FROM subscriptions AS sb
+    JOIN books ON sb.sb_book = books.b_id
+    RIGHT OUTER JOIN m2m_books_authors AS mba USING(b_id)
+    GROUP BY mba.a_id
+) AS authors_books;
+
+
+
